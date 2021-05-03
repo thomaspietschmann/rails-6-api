@@ -6,6 +6,11 @@ module Api
         super
       end
 
+      def index
+        books = Book.all
+        render json: BooksRepresenter.new(books).as_json
+      end
+
       private
 
       def model_params
